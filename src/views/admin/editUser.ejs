@@ -10,29 +10,33 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #f4f7fa;
+      background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       min-height: 100vh;
       display: flex;
       align-items: center;
     }
     .form-container {
-      background-color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.9);
       border-radius: 20px;
       padding: 40px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       transition: all 0.3s ease-in-out;
     }
     .form-container:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 15px 40px rgba(31, 38, 135, 0.47);
     }
     .form-title {
       margin-bottom: 30px;
       text-align: center;
       font-weight: bold;
-      color: #6a11cb;
+      color: #4a4a4a;
       font-size: 2rem;
+      border-bottom: 2px solid #6a11cb;
+      padding-bottom: 10px;
     }
     .form-label {
       font-weight: 600;
@@ -62,7 +66,7 @@
     }
     .btn-custom:hover {
       transform: translateY(-3px);
-      box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 7px 14px rgba(106, 17, 203, 0.4);
       background: linear-gradient(135deg, #5a0fb0 0%, #1e68e0 100%);
     }
     .error-message {

@@ -9,7 +9,7 @@
 
   <style>
     body {
-      background-color: #f0f2f5;
+      background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       min-height: 100vh;
       display: flex;
@@ -20,15 +20,19 @@
       width: 100%;
       margin: 0 auto;
       padding: 40px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
     }
     .form-container h2 {
       text-align: center;
       margin-bottom: 30px;
-      color: #1877f2;
+      color: #4a4a4a;
       font-weight: bold;
+      border-bottom: 2px solid #6a11cb;
+      padding-bottom: 10px;
     }
     .form-label {
       font-weight: 500;
@@ -37,23 +41,27 @@
     .btn-primary {
       width: 100%;
       padding: 12px;
-      background-color: #1877f2;
-      border-color: #1877f2;
+      background-color: #6a11cb;
+      border-color: #6a11cb;
       font-weight: bold;
       font-size: 1.1rem;
+      transition: all 0.3s ease;
     }
     .btn-primary:hover {
-      background-color: #166fe5;
-      border-color: #166fe5;
+      background-color: #5a01b9;
+      border-color: #5a01b9;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(106, 17, 203, 0.3);
     }
     .form-control {
       border-radius: 6px;
       padding: 12px;
       border: 1px solid #ddd;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
     .form-control:focus {
-      border-color: #1877f2;
-      box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+      border-color: #6a11cb;
+      box-shadow: 0 0 0 0.2rem rgba(106, 17, 203, 0.25);
     }
     .error-message {
       color: #dc3545;
@@ -65,11 +73,13 @@
       margin-top: 20px;
     }
     .login-link a {
-      color: #1877f2;
+      color: #6a11cb;
       text-decoration: none;
       font-weight: 500;
+      transition: color 0.3s ease;
     }
     .login-link a:hover {
+      color: #5a01b9;
       text-decoration: underline;
     }
   </style>
