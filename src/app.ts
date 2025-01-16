@@ -5,16 +5,22 @@ import session from "express-session";
 import flash from "connect-flash";
 import nocache from "nocache";
 
-//studentRoute
-// import {studentRoute} from "./routes/studentRoutes";
+//Route
+import { StudentRoute } from "./routes/studentRoutes";
+import { AdminRoute } from "./routes/adminRoutes";
 
-//student
-// import {studentRepository} from "./repository/"
+//student //admin
+import { StudentRepository } from "./repository/studentRepository";
+import { StudentService } from "./services/studentServices";
+import { StudentController } from "./controller/studentController";
+import { AdminRepository } from "./repository/adminRepositoty";
+import { AdminService } from "./services/adminServices";
+import { AdminController } from "./controller/adminController";
 
-declare module 'express-session' {
-    interface SesssionData{
+declare module 'express-session'{
+    interface SessionData{
         student?:string|null;
-        admin?:String|null;
+        admin?:string|null;
     }
 }
 
@@ -25,8 +31,14 @@ export class App {
         dotenv.config();
         this.app = express();
         this.setMiddleWare();
-        // this.setAdminRoute();
-        this.setStudentRoute;
+        this.setAdminRoute();
+        this.setStudentRoute();
+        this.setupViewEngine();
+    }
+
+    private setupViewEngine() {
+        this.app.set("views", path.join(__dirname, "views"));    
+        this.app.set("view engine", "ejs");
     }
 
     private setMiddleWare():void {
@@ -52,19 +64,19 @@ export class App {
     }
 
     private setStudentRoute() {
-        // const studentRepository = new studentRepository();
-        // const studentServices = new studentService(studentRepository);
-        // const studentController = new studentController(studentServices);
-        // const studentRoutes = new studentRoute(studentController);
-        // this.app.use('/',studentRoutes.getStudentRoute());
+        const studentRepository = new StudentRepository()
+        const studentService = new StudentService(studentRepository);
+        const studentController = new StudentController(studentService);
+        const studentRoutes = new StudentRoute(studentController)
+        this.app.use('/',studentRoutes.getStudentRoute());
     }
 
     private setAdminRoute() {
-        // const adminRepository = new adminRepository();
-        // const adminServices = new adminService(adminRepository);
-        // const adminController = new adminController(adminServices);
-        // const adminRoutes = new adminRoute(adminController);
-        // this.app.use('/admin',adminRoutes.getAdminRoute());
+        const adminRepository = new AdminRepository();
+        const adminServices = new AdminService(adminRepository);
+        const adminController = new AdminController(adminServices);
+        const adminRoutes = new AdminRoute(adminController);
+        this.app.use('/admin',adminRoutes.getAdminRoute());
     }
 
     public getApp() {

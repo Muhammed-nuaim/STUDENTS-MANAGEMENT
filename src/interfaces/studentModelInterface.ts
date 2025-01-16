@@ -1,7 +1,7 @@
 export interface Istudent {
-    name:String,
-    email:String,
+    name:string,
+    email:string,
     class:number,
-    password:String,
+    password:string,
     roleno:number
 }
